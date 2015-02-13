@@ -89,7 +89,12 @@ daysum&lt;-ddply(myactiv,.(date),summarize,totstep=sum(steps)) #calc number or s
 <h4>Median and mean number of steps per day</h4>
 <pre class="r"><code>raw_med&lt;-median(daysum$totstep,na.rm=T)
 raw_mean&lt;-mean(daysum$totstep,na.rm=T)</code></pre>
-<p>The median number of steps is <span class="math">\(10765\)</span> and the mean is <span class="math">\(1.0766189\times 10^{4}\)</span></p>
+<p>The median number of steps is</p>
+<pre class="r"><code>raw_med</code></pre>
+<pre><code>## [1] 10765</code></pre>
+<p>and the mean is</p>
+<pre class="r"><code>raw_mean</code></pre>
+<pre><code>## [1] 10766.19</code></pre>
 </div>
 </div>
 <div id="what-is-the-average-daily-activity-pattern" class="section level3">
@@ -139,23 +144,23 @@ imp_mean&lt;-mean(daysum1$totstep,na.rm=T)</code></pre>
 <tbody>
 <tr class="odd">
 <td align="left">Raw</td>
-<td align="left"><span class="math">\(1.0766189\times 10^{4}\)</span></td>
-<td align="left"><span class="math">\(10765\)</span></td>
+<td align="left">10766.19</td>
+<td align="left">10765</td>
 </tr>
 <tr class="even">
 <td align="left">Imputed</td>
-<td align="left"><span class="math">\(1.0765639\times 10^{4}\)</span></td>
-<td align="left"><span class="math">\(1.0762\times 10^{4}\)</span></td>
+<td align="left">10765.64</td>
+<td align="left">10762</td>
 </tr>
 <tr class="odd">
 <td align="left">Difference</td>
-<td align="left"><span class="math">\(0.549335\)</span></td>
-<td align="left"><span class="math">\(3\)</span></td>
+<td align="left">0.549335</td>
+<td align="left">3</td>
 </tr>
 </tbody>
 </table>
 <p>Including imputed values has no real inpact on the mean or median</p>
-<p>The total number of steps increased <span class="math">\(1.15\)</span> times</p>
+<p>The total number of steps increased 1.15 times</p>
 </div>
 <div id="are-there-differences-in-activity-patterns-between-weekdays-and-weekends" class="section level4">
 <h4>Are there differences in activity patterns between weekdays and weekends?</h4>

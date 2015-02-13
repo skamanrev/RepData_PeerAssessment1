@@ -54,7 +54,24 @@ raw_med<-median(daysum$totstep,na.rm=T)
 raw_mean<-mean(daysum$totstep,na.rm=T)
 ```
 
-The median number of steps is $10765$ and the mean is $1.0766189\times 10^{4}$
+The median number of steps is
+
+```r
+raw_med
+```
+
+```
+## [1] 10765
+```
+and the mean is
+
+```r
+raw_mean
+```
+
+```
+## [1] 10766.19
+```
 
 ### What is the average daily activity pattern?  
 
@@ -71,7 +88,7 @@ text(maxint+15,maxval-25, paste("Max Average # Steps occurs in interval ",maxint
                                 round(maxval,2),"steps"), col = "gray50", adj = c(0, 0))
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-4-1.png) 
+![](PA1_template_files/figure-html/unnamed-chunk-6-1.png) 
 
 ####The Interval with the highest average number of steps is
 
@@ -115,13 +132,13 @@ The change in mean and median caused by using imputed data is
 
 Data Type     | Mean         |Median      |
 ------------- | -------------|------------|
-Raw           | $1.0766189\times 10^{4}$ |$10765$ |   
-Imputed       |$1.0765639\times 10^{4}$  |$1.0762\times 10^{4}$ |
-Difference    |$0.549335$|$3$
+Raw           |10766.19|10765 |   
+Imputed       |10765.64 |10762|
+Difference    |0.549335|3|
 
 Including imputed values has no real inpact on the mean or median
 
-The total number of steps increased $1.15$ times
+The total number of steps increased 1.15 times
 
 #### Are there differences in activity patterns between weekdays and weekends?
 
