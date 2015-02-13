@@ -127,6 +127,7 @@ hist(daysum1$totstep,10,col="blue",xlab="Total Steps per Day",main="Histogram of
 imp_med<-median(daysum1$totstep,na.rm=T)
 imp_mean<-mean(daysum1$totstep,na.rm=T)
 ```
+(Note this section uses inline R code to display results - this does print in md docs see source Rmd file for code)
 
 The change in mean and median caused by using imputed data is 
 
@@ -139,6 +140,7 @@ Difference    |0.549335|3|
 Including imputed values has no real inpact on the mean or median
 
 The total number of steps increased 1.15 times
+
 
 #### Are there differences in activity patterns between weekdays and weekends?
 
