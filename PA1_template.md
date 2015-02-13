@@ -1,8 +1,3 @@
----
-output:
-  html_document:
-    keep_md: yes
----
 Analysis of Fitness Tracker Data
 ================================
 
@@ -28,7 +23,8 @@ be recomputed to see what effect the imputed data has on
 Finally uing the imputed data the diffences between weekend and weekday activity will be analyzed 
 
 ###Fetch and load Tracker Data
-```{r message=FALSE}
+
+```r
 working <- tempfile()
 ##setInternet2(TRUE) #This is required in knitr to make download work on Windows ->source stackoverflow
 ##download.file("https://d396qusza40orc.cloudfront.net/repdata%2Fdata%2Factivity.zip",working)
@@ -37,26 +33,43 @@ myactiv <- read.csv(unz(working, "activity.csv"))
 unlink(working)
 ```
 ### What is mean total number of steps taken per day?
-```{r message=FALSE}
+
+```r
 library(plyr)
 daysum<-ddply(myactiv,.(date),summarize,totstep=sum(steps)) #calc number or steps per day
 ```
 ####Plot Distribution of Total number of steps taken per day
-```{r dailysteps}
+
+```r
 hist(daysum$totstep,10,col="blue",xlab="Total Steps per Day",main="Histogram of Tracker Total Steps Per Day")
 ```
 
+![](PA1_template_files/figure-html/dailysteps-1.png) 
+
 ####Median and mean number of steps per day
-```{r}
+
+```r
 raw_med<-median(daysum$totstep,na.rm=T)
 raw_mean<-mean(daysum$totstep,na.rm=T)
 raw_med
+```
+
+```
+## [1] 10765
+```
+
+```r
 raw_mean
+```
+
+```
+## [1] 10766.19
 ```
 
 
 ### What is the average daily activity pattern?  
-```{r}
+
+```r
 #calculate the mean number of steps per interval across all days
 meanint<-ddply(myactiv,.(interval),summarise,meanstep=mean(steps,na.rm=T)) 
 plot(meanint$interval,meanint$meanstep,type="l",xlab="Interval",ylab="Average # of steps")
@@ -69,9 +82,16 @@ text(maxint+15,maxval-25, paste("Max Average # Steps occurs in interval ",maxint
                                 round(maxval,2),"steps"), col = "gray50", adj = c(0, 0))
 ```
 
+![](PA1_template_files/figure-html/unnamed-chunk-4-1.png) 
+
 ####The Interval with the highest average number of steps is
-```{r}
+
+```r
 maxint
+```
+
+```
+## [1] 835
 ```
 ## Imputing missing values
 
